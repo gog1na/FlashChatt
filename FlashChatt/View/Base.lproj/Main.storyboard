@@ -115,34 +115,36 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textfield" translatesAutoresizingMaskIntoConstraints="NO" id="gFX-5v-MtK">
                                         <rect key="frame" x="0.0" y="20" width="393" height="137"/>
                                     </imageView>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aiJ-DP-0zt">
-                                        <rect key="frame" x="48" y="50" width="297" height="45"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hqi-qd-ESd">
-                                        <rect key="frame" x="0.0" y="126" width="393" height="51"/>
+                                        <rect key="frame" x="0.0" y="127" width="393" height="50"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Log in">
                                             <fontDescription key="titleFontDescription" type="system" pointSize="30"/>
                                             <color key="baseForegroundColor" name="BrandLightBlue"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="loginPressed:" destination="0Kd-nC-c8H" eventType="touchUpInside" id="1en-NP-koC"/>
+                                        </connections>
                                     </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RW9-sZ-Xpg">
+                                        <rect key="frame" x="48" y="50" width="297" height="39"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="hqi-qd-ESd" secondAttribute="trailing" id="2ya-Qi-iop"/>
                                     <constraint firstAttribute="bottom" secondItem="gFX-5v-MtK" secondAttribute="bottom" constant="20" id="4MG-qz-BQr"/>
-                                    <constraint firstAttribute="trailing" secondItem="aiJ-DP-0zt" secondAttribute="trailing" constant="48" id="B7P-7i-sRe"/>
+                                    <constraint firstItem="RW9-sZ-Xpg" firstAttribute="leading" secondItem="BgO-oA-Fl8" secondAttribute="leading" constant="48" id="8r9-lg-XDj"/>
                                     <constraint firstAttribute="height" constant="177" id="DiV-Ex-xNl"/>
                                     <constraint firstItem="gFX-5v-MtK" firstAttribute="top" secondItem="BgO-oA-Fl8" secondAttribute="top" constant="20" id="ErT-jK-NlP"/>
-                                    <constraint firstItem="hqi-qd-ESd" firstAttribute="top" secondItem="aiJ-DP-0zt" secondAttribute="bottom" constant="31" id="Mkg-4A-Cvy"/>
                                     <constraint firstAttribute="trailing" secondItem="gFX-5v-MtK" secondAttribute="trailing" id="Nd1-ji-Psd"/>
-                                    <constraint firstAttribute="bottom" secondItem="aiJ-DP-0zt" secondAttribute="bottom" constant="82" id="Qo1-ym-Au7"/>
+                                    <constraint firstAttribute="top" secondItem="RW9-sZ-Xpg" secondAttribute="bottom" constant="-89" id="Pzw-ce-O6K"/>
+                                    <constraint firstItem="RW9-sZ-Xpg" firstAttribute="top" secondItem="BgO-oA-Fl8" secondAttribute="top" constant="50" id="Tkv-zE-1l6"/>
                                     <constraint firstItem="gFX-5v-MtK" firstAttribute="leading" secondItem="BgO-oA-Fl8" secondAttribute="leading" id="XQa-KA-4RD"/>
                                     <constraint firstAttribute="bottom" secondItem="hqi-qd-ESd" secondAttribute="bottom" id="YFt-qC-waS"/>
-                                    <constraint firstItem="aiJ-DP-0zt" firstAttribute="top" secondItem="BgO-oA-Fl8" secondAttribute="top" constant="50" id="eth-dn-rOM"/>
-                                    <constraint firstItem="aiJ-DP-0zt" firstAttribute="leading" secondItem="BgO-oA-Fl8" secondAttribute="leading" constant="48" id="mHh-GW-29W"/>
                                     <constraint firstItem="hqi-qd-ESd" firstAttribute="leading" secondItem="BgO-oA-Fl8" secondAttribute="leading" id="t0K-Sz-yph"/>
+                                    <constraint firstAttribute="trailing" secondItem="RW9-sZ-Xpg" secondAttribute="trailing" constant="48" id="w5Y-E8-4qL"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -159,6 +161,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="rzS-om-r14"/>
                     <connections>
+                        <outlet property="emailTextField" destination="b1C-lk-zSf" id="P7g-iG-txj"/>
+                        <outlet property="passwordTextField" destination="RW9-sZ-Xpg" id="sPo-lT-XpG"/>
                         <segue destination="Bm1-15-Iwp" kind="show" identifier="LoginToChat" id="dLT-GZ-qm9"/>
                     </connections>
                 </viewController>
@@ -196,6 +200,9 @@
                                         <buttonConfiguration key="configuration" style="plain" image="paperplane.fill" catalog="system">
                                             <color key="baseForegroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="sendPressed:" destination="Bm1-15-Iwp" eventType="touchUpInside" id="ZvA-F9-dNF"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -224,7 +231,18 @@
                             <constraint firstItem="GOp-j4-Qqt" firstAttribute="trailing" secondItem="0m6-6Z-snr" secondAttribute="trailing" id="hW3-Ye-mdB"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="lhU-k6-2ux"/>
+                    <navigationItem key="navigationItem" id="lhU-k6-2ux">
+                        <barButtonItem key="rightBarButtonItem" title="Log out" id="TEs-qV-eId">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="logoutPressed:" destination="Bm1-15-Iwp" id="xwQ-7k-Yq2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="messageTextField" destination="jMi-9S-a7E" id="KSB-Wf-h9e"/>
+                        <outlet property="tableView" destination="0m6-6Z-snr" id="ngQ-MU-lox"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E2V-kG-fKv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -271,7 +289,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ceO-El-R6L">
                                         <rect key="frame" x="48" y="50" width="297" height="45"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RNv-Rd-RoG">
                                         <rect key="frame" x="0.0" y="126" width="393" height="51"/>
@@ -280,6 +298,9 @@
                                             <fontDescription key="titleFontDescription" type="system" pointSize="30"/>
                                             <color key="baseForegroundColor" name="BrandBlue"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="registerPressed:" destination="B91-Ti-puq" eventType="touchUpInside" id="eaR-xv-AuX"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -312,6 +333,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="cYU-ad-Nmy"/>
                     <connections>
+                        <outlet property="emailTextField" destination="JTc-lr-UmS" id="30M-h0-kUJ"/>
+                        <outlet property="passwordTextField" destination="ceO-El-R6L" id="0rm-Qc-PLo"/>
                         <segue destination="Bm1-15-Iwp" kind="show" identifier="RegisterToChat" id="oar-4w-Z8R"/>
                     </connections>
                 </viewController>
@@ -345,13 +368,13 @@
         <image name="paperplane.fill" catalog="system" width="128" height="119"/>
         <image name="textfield" width="298" height="93"/>
         <namedColor name="BrandBlue">
-            <color red="0.16500000000000001" green="0.78000000000000003" blue="0.996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.16500000655651093" green="0.77999997138977051" blue="0.99599999189376831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="BrandLightBlue">
             <color red="0.92200000000000004" green="0.97999999999999998" blue="0.996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="BrandPurple">
-            <color red="0.67500000000000004" green="0.435" blue="0.91800000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.67500001192092896" green="0.43500000238418579" blue="0.9179999828338623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
