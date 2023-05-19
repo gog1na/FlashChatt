@@ -38,6 +38,8 @@ class ChatViewController: UIViewController {
     
     func loadMessages() {
         db.collection(K.FStore.collectionName).order(by: K.FStore.dateField).addSnapshotListener { querySnapshot, err in
+            
+            self.messages = []
             if let err = err {
                 print("Error getting documents: \(err.localizedDescription)")
             } else {
